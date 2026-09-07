@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>White Brick Self Adhesive | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../self-adhesives/index.html">← BACK TO SELF ADHESIVES</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/self-adhesives/product-02.jpg">
+        <img src="../../assets/products/self-adhesives/product-02.jpg" alt="White Brick Self Adhesive photo 1">
+      </button>
+    </div>
+    <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/self-adhesives/product-02.jpg" alt="White Brick Self Adhesive"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">SELF ADHESIVES / PRODUCT 02</div>
+    <h1>White Brick Self Adhesive</h1>
+    <div class="product-page-price"><b>₹ 205/Piece</b><a href="#quote">Get Latest Price</a></div>
+    
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Brand</span><span>VTC</span></div>
+      <div class="product-spec-row"><span>Color</span><span>White</span></div>
+      <div class="product-spec-row"><span>Thickness</span><span>7 mm</span></div>
+      <div class="product-spec-row"><span>Usage</span><span>Wall</span></div>
+      <div class="product-spec-row"><span>Application</span><span>Decoration</span></div>
+      <div class="product-spec-row"><span>Country of Origin</span><span>Made in India</span></div>
+    </div>
+    <p class="product-desc">We Vikas Trading Company, are a Sole Proprietorship Entity, known as the foremost Manufacturer, Exporter and Importer of an exclusive range of PVC Wallpaper, Designer Wall Paper, Marble Sheets, PVC Wall Panel And Sheet, PVC Panel And Sheet and many more.</p>
+    <div class="product-features">
+      <h3>Features:</h3>
+      <ul>
+        <li>Durable</li>
+        <li>7 mm cushioning thickness</li>
+        <li>Easy self-adhesive peel and stick installation</li>
+        <li>Waterproof & easy to maintain</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../self-adhesives/index.html">← ALL SELF ADHESIVES</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

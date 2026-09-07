@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Artificial Grass Mat | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../artificial-hanging-garden/index.html">← BACK TO ARTIFICIAL HANGING GARDEN</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/artificial-hanging-garden/product-01.jpg">
+        <img src="../../assets/products/artificial-hanging-garden/product-01.jpg" alt="Artificial Grass Mat photo 1">
+      </button>
+      <button class="product-thumb " type="button" data-img="../../assets/products/artificial-hanging-garden/product-01-2.jpg">
+        <img src="../../assets/products/artificial-hanging-garden/product-01-2.jpg" alt="Artificial Grass Mat photo 2">
+      </button>
+      <button class="product-thumb " type="button" data-img="../../assets/products/artificial-hanging-garden/product-01-3.jpg">
+        <img src="../../assets/products/artificial-hanging-garden/product-01-3.jpg" alt="Artificial Grass Mat photo 3">
+      </button>
+      <button class="product-thumb " type="button" data-img="../../assets/products/artificial-hanging-garden/product-01-4.jpg">
+        <img src="../../assets/products/artificial-hanging-garden/product-01-4.jpg" alt="Artificial Grass Mat photo 4">
+      </button></div>
+    <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/artificial-hanging-garden/product-01.jpg" alt="Artificial Grass Mat"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">ARTIFICIAL HANGING GARDEN / PRODUCT 01</div>
+    <h1>Artificial Grass Mat</h1>
+    <div class="product-page-price"><b>₹ 25/Square Feet</b><a href="#quote">Get Latest Price</a></div>
+    <p class="product-page-moq">Minimum Order Quantity: <b>100 Square Feet</b></p>
+    <div class="product-specs"><div class="product-spec-row"><span>Mat Size</span><span>6.7ftx82ft</span></div><div class="product-spec-row"><span>Brand</span><span>VTC</span></div><div class="product-spec-row"><span>Material</span><span>PP</span></div><div class="product-spec-row"><span>Color</span><span>Green</span></div><div class="product-spec-row"><span>Usage/Application</span><span>Indoor / Outdoor</span></div><div class="product-spec-row"><span>Weight</span><span>1.5kg/m2</span></div><div class="product-spec-row"><span>Thickness</span><span>12-50mm</span></div></div>
+    <p class="product-desc">High-quality artificial grass mat suitable for indoor and outdoor decoration, landscaping, balconies, and sports flooring.</p>
+    <div class="product-features"><h3>Features:</h3><ul><li>That Doesn't Drink</li><li>That Doesn't Grow</li><li>That Can Take A Knock</li><li>That Doesn't Burn</li><li>That Give Peace Of Mind</li><li>That Appear Better Look Than Real Grass</li></ul></div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../artificial-hanging-garden/index.html">← ALL ARTIFICIAL HANGING GARDEN</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

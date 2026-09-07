@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Marble Slabs | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../marble-slab/index.html">← BACK TO MARBLE SLAB</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/marble-slab/product-01.jpg">
+        <img src="../../assets/products/marble-slab/product-01.jpg" alt="Marble Slabs photo 1">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/marble-slab/product-01-2.jpg">
+        <img src="../../assets/products/marble-slab/product-01-2.jpg" alt="Marble Slabs photo 2">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/marble-slab/product-01-3.jpg">
+        <img src="../../assets/products/marble-slab/product-01-3.jpg" alt="Marble Slabs photo 3">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/marble-slab/product-01-4.jpg">
+        <img src="../../assets/products/marble-slab/product-01-4.jpg" alt="Marble Slabs photo 4">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/marble-slab/product-01-5.jpg">
+        <img src="../../assets/products/marble-slab/product-01-5.jpg" alt="Marble Slabs photo 5">
+      </button>
+    </div>
+    <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/marble-slab/product-01.jpg" alt="Marble Slabs"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">MARBLE SLAB / PRODUCT 01</div>
+    <h1>Marble Slabs</h1>
+    <div class="product-page-price"><b>₹ 75/sq ft</b><a href="#quote">Get Latest Price</a></div>
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Form</span><span>Tile / Slab</span></div>
+      <div class="product-spec-row"><span>Marble Type</span><span>Imported Marble</span></div>
+      <div class="product-spec-row"><span>Surface Finish</span><span>Polished (High Gloss)</span></div>
+      <div class="product-spec-row"><span>Usage/Application</span><span>Countertops, Flooring, Walls</span></div>
+      <div class="product-spec-row"><span>Color</span><span>White</span></div>
+      <div class="product-spec-row"><span>Size</span><span>6 ft x 4 ft</span></div>
+      <div class="product-spec-row"><span>Thickness</span><span>10 mm</span></div>
+      <div class="product-spec-row"><span>Weight</span><span>50 kg</span></div>
+      <div class="product-spec-row"><span>Brand</span><span>VTC</span></div>
+      <div class="product-spec-row"><span>Country of Origin</span><span>Made in India</span></div>
+    </div>
+    <p class="product-desc">High gloss slabs, Application - flooring, walls, countertops, etc. Waterproof, fireproof, termite proof.</p>
+    <div class="product-features">
+      <h3>Features:</h3>
+      <ul>
+        <li>Premium high-gloss mirror polished surface</li>
+        <li>100% waterproof, fireproof, and termite proof</li>
+        <li>Substantial 50 kg weight providing rock-solid stability</li>
+        <li>Elegant white imported marble aesthetic with luxurious veining</li>
+        <li>Ideal for dining tables, kitchen countertops, bathroom vanities & wall cladding</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../marble-slab/index.html">← ALL MARBLE SLAB</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

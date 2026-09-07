@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>500 ml Hand Sanitizers | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../hand-sanitizer/index.html">← BACK TO HAND SANITIZER</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/hand-sanitizer/product-01.jpg">
+        <img src="../../assets/products/hand-sanitizer/product-01.jpg" alt="500 ml Hand Sanitizers photo 1">
+      </button>
+    </div>
+    <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/hand-sanitizer/product-01.jpg" alt="500 ml Hand Sanitizers"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">HAND SANITIZER / PRODUCT 01</div>
+    <h1>500 ml Hand Sanitizers</h1>
+    <div class="product-page-price"><b>₹ 45/Bottle</b><a href="#quote">Get Latest Price</a></div>
+    <p class="product-page-moq">Minimum Order Quantity: <b>1 Bottle</b></p>
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Packaging Size</span><span>500 ml</span></div>
+      <div class="product-spec-row"><span>Brand</span><span>Asianpaints</span></div>
+      <div class="product-spec-row"><span>Alcohol Content %</span><span>71 - 80%</span></div>
+      <div class="product-spec-row"><span>Country of Origin</span><span>Made in India</span></div>
+      <div class="product-spec-row"><span>Usage</span><span>Handwash / Disinfectant</span></div>
+      <div class="product-spec-row"><span>Germs Protection</span><span>Kills 99.9% Germs</span></div>
+    </div>
+    <p class="product-desc">We Vikas Trading Company, are a Sole Proprietorship Entity, known as the foremost Manufacturer, Exporter and Importer of an exclusive range of PVC Wallpaper, Designer Wall Paper, Marble Sheets, PVC Wall Panel And Sheet, PVC Panel And Sheet and many more.</p>
+    <div class="product-features">
+      <h3>Features:</h3>
+      <ul>
+        <li>71 - 80% alcohol content for superior protection</li>
+        <li>Kills 99.9% of bacteria and viruses</li>
+        <li>Safe on skin with clove oil reinforcement</li>
+        <li>Rinse-free protection on the go</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../hand-sanitizer/index.html">← ALL HAND SANITIZER</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

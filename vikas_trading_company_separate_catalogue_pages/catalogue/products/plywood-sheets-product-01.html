@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pu Rock Panel | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../plywood-sheets/index.html">← BACK TO PLYWOOD SHEETS</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/plywood-sheets/product-01.jpg">
+        <img src="../../assets/products/plywood-sheets/product-01.jpg" alt="Pu Rock Panel photo 1">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/plywood-sheets/product-01-2.jpg">
+        <img src="../../assets/products/plywood-sheets/product-01-2.jpg" alt="Pu Rock Panel photo 2">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/plywood-sheets/product-01-3.jpg">
+        <img src="../../assets/products/plywood-sheets/product-01-3.jpg" alt="Pu Rock Panel photo 3">
+      </button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/plywood-sheets/product-01-4.jpg">
+        <img src="../../assets/products/plywood-sheets/product-01-4.jpg" alt="Pu Rock Panel photo 4">
+      </button>
+    </div>
+    <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/plywood-sheets/product-01.jpg" alt="Pu Rock Panel"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">PLYWOOD SHEETS / PRODUCT 01</div>
+    <h1>Pu Rock Panel</h1>
+    <div class="product-page-price"><b>₹ 280/sq ft</b><a href="#quote">Get Latest Price</a></div>
+    <a class="product-brochure" href="../../assets/products/plywood-sheets/pu-rock-panel.pdf" target="_blank" style="display:inline-block;text-decoration:none;text-align:center">▧ Download Brochure (PDF) ↗</a>
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Thickness</span><span>75 mm</span></div>
+      <div class="product-spec-row"><span>Size</span><span>4 ft x 2 ft</span></div>
+      <div class="product-spec-row"><span>Material</span><span>PU (Polyurethane Faux Stone)</span></div>
+      <div class="product-spec-row"><span>Brand</span><span>VTC</span></div>
+      <div class="product-spec-row"><span>Country of Origin</span><span>Made in India</span></div>
+      <div class="product-spec-row"><span>Usage/Application</span><span>Interior & Exterior Wall Decoration</span></div>
+    </div>
+    <p class="product-desc">We Vikas Trading Company, are a Sole Proprietorship Entity, known as the foremost Manufacturer, Exporter and Importer of an exclusive range of PVC Wallpaper, Designer Wall Paper, Marble Sheets, PVC Wall Panel And Sheet, PVC Panel And Sheet and many more.</p>
+    <div class="product-features">
+      <h3>Features:</h3>
+      <ul>
+        <li>Realistic 3D rock stone texture</li>
+        <li>Lightweight & high density PU composition</li>
+        <li>75 mm thickness with thermal and acoustic insulation</li>
+        <li>Waterproof, termite proof & easy installation</li>
+        <li>Ideal for TV backdrops, accent walls & commercial spaces</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../plywood-sheets/index.html">← ALL PLYWOOD SHEETS</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

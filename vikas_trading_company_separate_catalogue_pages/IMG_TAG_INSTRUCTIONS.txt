@@ -1,0 +1,11 @@
+All product images use explicit HTML <img src="..."> tags.
+
+Example:
+<img src="../assets/products/pvc-wallpaper/product-01.jpg" alt="Product photo 1">
+
+Multiple photos:
+<img src="../assets/products/pvc-wallpaper/product-01.jpg" alt="Product photo 1">
+<img src="../assets/products/pvc-wallpaper/product-01-2.jpg" alt="Product photo 2">
+<img src="../assets/products/pvc-wallpaper/product-01-3.jpg" alt="Product photo 3">
+
+Replace src manually with your actual asset path and add/remove img tags as needed.

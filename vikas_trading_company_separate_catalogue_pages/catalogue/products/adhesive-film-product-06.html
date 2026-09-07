@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Adhesive Film — Product 06 | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../adhesive-film/index.html">← BACK TO ADHESIVE FILM</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs"><button class="product-thumb active" type="button" data-img="../../assets/products/adhesive-film/product-06.jpeg"><img src="../../assets/products/adhesive-film/product-06.jpeg" alt="Product photo 1"></button></div>
+  <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/adhesive-film/product-06.jpeg" alt="Product main photo"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">ADHESIVE FILM / PRODUCT 06</div>
+    <h1>Self Adhesive Film</h1>
+    <div class="product-page-price"><b>₹ 20/Square Feet</b><a href="#quote">Get Latest Price</a></div>
+    <p class="product-page-moq">Minimum Order Quantity: <b>Not specified</b></p>
+    <button class="product-brochure">▧ Product Brochure</button>
+    <div class="product-specs"><div class="product-spec-row"><span>Brand</span><span>VTC</span></div><div class="product-spec-row"><span>Country of Origin</span><span>Made in India</span></div><div class="product-spec-row"><span>Material</span><span>PVC</span></div><div class="product-spec-row"><span>Thickness</span><span>0.3 mm</span></div><div class="product-spec-row"><span>Width</span><span>4 ft</span></div><div class="product-spec-row"><span>Length</span><span>170 ft</span></div></div>
+    <p class="product-desc">PVC self-adhesive mica film with a textured finish and multiple design options.</p>
+    <div class="product-features"><h3>Features:</h3><ul><li>Texture finish</li><li>Easy surface renewal</li><li>Available in 40+ designs</li></ul></div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../adhesive-film/index.html">← ALL ADHESIVE FILM</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>

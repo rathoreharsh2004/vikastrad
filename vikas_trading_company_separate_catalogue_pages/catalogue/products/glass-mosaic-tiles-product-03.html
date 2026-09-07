@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Glass Mosaic Tiles — Product 03 | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../catalogue.css"></head>
+<body>
+<nav class="site-mini-nav"><a href="../index.html">VIKAS TRADING CO.</a><a class="back" href="../glass-mosaic-tiles/index.html">← BACK TO GLASS MOSAIC TILES</a></nav>
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs"><button class="product-thumb active" type="button" data-img="../../assets/products/glass-mosaic-tiles/product-03.jpg"><img src="../../assets/products/glass-mosaic-tiles/product-03.jpg" alt="Product photo 1"></button></div>
+  <div id="mainProductImage" class="product-main-image"><img src="../../assets/products/glass-mosaic-tiles/product-03.jpg" alt="Product main photo"></div>
+  </section>
+  <section class="product-page-info">
+    <div class="breadcrumb">GLASS MOSAIC TILES / PRODUCT 03</div>
+    <h1>Glass Mosaic Tiles — Product 03</h1>
+    <div class="product-page-price"><a href="#quote">Get Latest Price</a></div>
+    
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100" target="_blank">YES, I AM INTERESTED! ↗</a>
+      <a class="call" href="tel:+917696292100">☎ &nbsp; CALL NOW</a>
+    </div>
+  </section>
+</div>
+<div class="product-page-footer"><a href="../glass-mosaic-tiles/index.html">← ALL GLASS MOSAIC TILES</a><a href="../index.html#products">PRODUCT CATALOGUE ↗</a></div>
+</main>
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); document.getElementById("mainProductImage").querySelector("img").src=t.dataset.img;
+}));
+</script>
+</body></html>
