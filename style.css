@@ -132,10 +132,47 @@ cursor:pointer
 
 .menu i{
 display:block;
-width:29px;
+width:28px;
 height:1px;
-background:#aaa
+background:#aaa;
+transition:transform .3s,opacity .3s
 }
+
+.menu{
+width:38px;
+height:38px;
+justify-content:center;
+flex-direction:column;
+position:relative
+}
+
+.menu.open i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu.open i:nth-child(2){opacity:0}
+.menu.open i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.menu-panel{
+position:fixed;
+inset:0;
+z-index:120;
+background:#080808f2;
+backdrop-filter:blur(14px);
+opacity:0;
+visibility:hidden;
+transition:opacity .35s,visibility .35s;
+padding:110px 30px 30px;
+overflow:auto
+}
+
+.menu-panel.open{opacity:1;visibility:visible}
+.menu-panel-inner{width:min(760px,100%);margin:0 auto;border-top:1px solid #333}
+.menu-panel-head{display:flex;justify-content:space-between;align-items:center;padding:18px 0;color:#777;font-size:9px;letter-spacing:.14em}
+.menu-close{width:38px;height:38px;border:1px solid #555;border-radius:50%;background:#151515;color:#fff;font-size:25px;line-height:1;cursor:pointer}
+.menu-links{display:flex;flex-direction:column}
+.menu-links a{display:flex;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid #292929;color:#eee;text-decoration:none;font-family:Oswald,sans-serif;font-size:clamp(24px,4vw,42px);font-weight:400;transition:color .25s,transform .25s}
+.menu-links a span{font-family:"DM Sans",sans-serif;font-size:8px;color:#f4d800;letter-spacing:.12em;min-width:28px}
+.menu-links a:hover{color:#f4d800;transform:translateX(8px)}
+body.menu-open{overflow:hidden}
+
 
 .hero{
 height:720px;
@@ -854,6 +891,13 @@ gap:10px
 font-size:9px;
 color:#bbb
 }
+
+.footer-contact{justify-self:end;display:flex;flex-direction:column;gap:15px;min-width:300px}
+.footer-contact a,.footer-address{display:flex;align-items:flex-start;gap:11px;color:#bbb;text-decoration:none;font-size:10px;line-height:1.5;transition:color .25s}
+.footer-contact a:hover{color:#f4d800}
+.footer-contact svg{width:18px;height:18px;flex:0 0 18px;color:#f4d800}
+.footer-address span{max-width:300px}
+
 
 .footer-bottom{
 border-top:1px solid #292929;
@@ -1654,6 +1698,12 @@ gap:35px
 
 .footer-social{
 justify-self:start
+}
+
+.footer-contact{
+justify-self:start;
+min-width:0;
+width:100%
 }
 
 .footer-bottom{
