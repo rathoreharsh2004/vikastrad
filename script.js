@@ -12,8 +12,7 @@ const recentImages = Array.from(
 );
 
 
-/* Temporary premium interior-design titles/descriptions.
-   These can be replaced later with the client's actual details. */
+/* Temporary premium interior-design titles/descriptions */
 
 const recentContent = [
 
@@ -171,9 +170,7 @@ function showRecent(n) {
     (n + recentImages.length) %
     recentImages.length;
 
-
   const data = recentContent[recentIndex];
-
 
   if (recentImage) {
 
@@ -181,7 +178,8 @@ function showRecent(n) {
 
     setTimeout(() => {
 
-      recentImage.src = recentImages[recentIndex];
+      recentImage.src =
+        recentImages[recentIndex];
 
       recentImage.alt =
         `Vikas Trading Company - ${data.title}`;
@@ -194,37 +192,30 @@ function showRecent(n) {
 
   }
 
-
   if (recentTitle) {
     recentTitle.textContent = data.title;
   }
-
 
   if (recentDescription) {
     recentDescription.textContent = data.text;
   }
 
-
   const number =
     String(recentIndex + 1).padStart(2, "0");
-
 
   if (recentCounter) {
     recentCounter.textContent = number;
   }
-
 
   if (recentNumber) {
     recentNumber.textContent =
       `${number} / 25`;
   }
 
-
   if (recentKicker) {
     recentKicker.textContent =
       `RECENT COLLECTION / ${number}`;
   }
-
 
   if (recentProgress) {
     recentProgress.style.width =
@@ -239,9 +230,7 @@ function restartRecent() {
   clearInterval(recentAuto);
 
   recentAuto = setInterval(() => {
-
     showRecent(recentIndex + 1);
-
   }, 5200);
 
 }
@@ -252,7 +241,6 @@ if ($("#recentPrev")) {
   $("#recentPrev").onclick = () => {
 
     showRecent(recentIndex - 1);
-
     restartRecent();
 
   };
@@ -265,7 +253,6 @@ if ($("#recentNext")) {
   $("#recentNext").onclick = () => {
 
     showRecent(recentIndex + 1);
-
     restartRecent();
 
   };
@@ -280,12 +267,12 @@ restartRecent();
 
 /* =========================================================
    OUR KEY PRODUCTS
-   Existing 15-image slider
+   25 IMAGES: c1.jpeg → c25.jpeg
 ========================================================= */
 
 const creations =
   Array.from(
-    { length: 15 },
+    { length: 25 },
     (_, i) => `assets/c${i + 1}.jpeg`
   );
 
@@ -304,7 +291,8 @@ if (track) {
 
   creations.forEach((id, i) => {
 
-    const el = document.createElement("div");
+    const el =
+      document.createElement("div");
 
     el.className = "slide";
 
@@ -330,7 +318,8 @@ if ($("#galleryGrid")) {
 
   gallery.forEach((id, i) => {
 
-    const el = document.createElement("div");
+    const el =
+      document.createElement("div");
 
     el.className = "g reveal";
 
@@ -358,15 +347,12 @@ function show(n) {
 
   if (!list.length || !track) return;
 
-
   index =
     (n + list.length) %
     list.length;
 
-
   track.style.transform =
     `translateX(-${index * 100}%)`;
-
 
   list.forEach((x, i) => {
 
@@ -377,14 +363,12 @@ function show(n) {
 
   });
 
-
   if ($("#counter")) {
 
     $("#counter").textContent =
       String(index + 1).padStart(2, "0");
 
   }
-
 
   if ($("#slideTitle")) {
 
@@ -393,11 +377,10 @@ function show(n) {
 
   }
 
-
   if ($("#progress")) {
 
     $("#progress").style.width =
-      `${((index + 1) / 15) * 100}%`;
+      `${((index + 1) / 25) * 100}%`;
 
   }
 
@@ -422,7 +405,6 @@ if ($("#prev")) {
   $("#prev").onclick = () => {
 
     show(index - 1);
-
     restart();
 
   };
@@ -435,7 +417,6 @@ if ($("#next")) {
   $("#next").onclick = () => {
 
     show(index + 1);
-
     restart();
 
   };
@@ -454,7 +435,8 @@ restart();
 
 document.querySelectorAll(".faq").forEach(x => {
 
-  const button = x.querySelector("button");
+  const button =
+    x.querySelector("button");
 
   if (!button) return;
 
@@ -557,20 +539,90 @@ document
 
 
 /* =========================================================
-   MENU
+   QUICK NAVIGATION MENU
 ========================================================= */
 
-if ($("#menu")) {
+const menuButton = $("#menu");
+const menuPanel = $("#menuPanel");
+const menuClose = $("#menuClose");
 
-  $("#menu").onclick = () => {
 
-    alert(
-      "Use the navigation links above or scroll through the studio."
+function setMenu(open) {
+
+  if (!menuButton || !menuPanel) return;
+
+  menuPanel.classList.toggle(
+    "open",
+    open
+  );
+
+  menuButton.classList.toggle(
+    "open",
+    open
+  );
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    String(open)
+  );
+
+  menuPanel.setAttribute(
+    "aria-hidden",
+    String(!open)
+  );
+
+  document.body.classList.toggle(
+    "menu-open",
+    open
+  );
+
+}
+
+
+if (menuButton) {
+
+  menuButton.onclick = () => {
+
+    setMenu(
+      !menuPanel.classList.contains("open")
     );
 
   };
 
 }
+
+
+if (menuClose) {
+
+  menuClose.onclick = () => {
+    setMenu(false);
+  };
+
+}
+
+
+document
+  .querySelectorAll(".menu-links a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      () => setMenu(false)
+    );
+
+  });
+
+
+document.addEventListener(
+  "keydown",
+  e => {
+
+    if (e.key === "Escape") {
+      setMenu(false);
+    }
+
+  }
+);
 
 
 
@@ -591,7 +643,6 @@ const load =
         pct + "%";
 
     }
-
 
     if (pct >= 100) {
 
