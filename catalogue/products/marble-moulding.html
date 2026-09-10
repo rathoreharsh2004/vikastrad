@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Marble Moulding — Black Colour | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../catalogue.css">
+</head>
+<body>
+<nav class="site-mini-nav">
+  <a href="../../index.html">VIKAS TRADING CO.</a>
+  <a class="back" href="../mouldings-profiles/index.html">← BACK TO MOULDINGS & PROFILES</a>
+</nav>
+
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/mouldings-profiles/marble-moulding/image-1.png"><img src="../../assets/products/mouldings-profiles/marble-moulding/image-1.png" alt="Black Marble Moulding"></button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/mouldings-profiles/marble-moulding/image-2.png"><img src="../../assets/products/mouldings-profiles/marble-moulding/image-2.png" alt="White Marble Moulding"></button>
+      <button class="product-thumb" type="button" data-img="../../assets/products/mouldings-profiles/marble-moulding/image-3.jpg"><img src="../../assets/products/mouldings-profiles/marble-moulding/image-3.jpg" alt="Beige Marble Moulding"></button>
+    </div>
+    <div id="mainProductImage" class="product-main-image">
+      <img src="../../assets/products/mouldings-profiles/marble-moulding/image-1.png" alt="Marble Moulding — Black Colour">
+    </div>
+  </section>
+
+  <section class="product-page-info">
+    <div class="breadcrumb">MOULDINGS & PROFILES / MARBLE MOULDING — BLACK COLOUR</div>
+    <h1>Marble Moulding — Black Colour</h1>
+    <div class="product-page-price">
+      <b>₹ 460.00 / Piece</b>
+      <a href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20Marble%20Moulding%20Black%20Colour%20%28%E2%82%B9460%29.%20Please%20share%20details%20and%20designs." target="_blank">Get Latest Price</a>
+    </div>
+
+    <p class="product-desc" style="margin-top:15px;font-size:15px;color:#333;font-weight:500">
+      Marble moulding used with marble sheet and get good results. Waterproof, fireproof, termite proof. Just use our glue and fix without nails.
+    </p>
+
+    <div class="product-specs" style="margin-top:20px">
+      <div class="product-spec-row"><span>Product Name</span><span>Marble Moulding</span></div>
+      <div class="product-spec-row"><span>Featured Colour</span><span>Black Marble (White &amp; Crema also available)</span></div>
+      <div class="product-spec-row"><span>Price</span><span>₹ 460.00 per piece</span></div>
+      <div class="product-spec-row"><span>Recommended Pairing</span><span>Used with PVC Marble Sheets &amp; Highlighter Sheets</span></div>
+      <div class="product-spec-row"><span>Water Resistance</span><span>100% Waterproof</span></div>
+      <div class="product-spec-row"><span>Fire Resistance</span><span>Fireproof / Flame Retardant</span></div>
+      <div class="product-spec-row"><span>Termite Resistance</span><span>100% Termite Proof &amp; Borer Proof</span></div>
+      <div class="product-spec-row"><span>Installation</span><span>Nail-Free: Just use our adhesive glue &amp; fix</span></div>
+      <div class="product-spec-row"><span>Brand</span><span>Vikas Trading Company</span></div>
+      <div class="product-spec-row"><span>Shipping</span><span>Pan India &amp; Worldwide Delivery</span></div>
+    </div>
+
+    <div class="product-features" style="margin-top:20px">
+      <h3>Key Highlights:</h3>
+      <ul>
+        <li>Specially designed border profile to frame PVC marble sheets for seamless elegance</li>
+        <li>100% Waterproof — ideal for bathrooms, kitchens, and living rooms</li>
+        <li>Fireproof and termite proof for guaranteed lifetime durability</li>
+        <li>Fast nail-free installation: bonds securely using specialized adhesive glue</li>
+        <li>Available in Black Marble, White Carrara, and Beige/Crema stone veining</li>
+      </ul>
+    </div>
+
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20Marble%20Moulding%20Black%20Colour%20%28%E2%82%B9460%29.%20Please%20share%20details%20and%20designs." target="_blank">CLICK BELOW LINK AND KNOW MORE ↗</a>
+      <a class="call" href="tel:+917696292100">CALL 7696292100 ↗</a>
+    </div>
+  </section>
+</div>
+
+<div class="product-page-footer">
+  <a href="../mouldings-profiles/index.html">← ALL MOULDINGS & PROFILES</a>
+  <a href="../../index.html#products">PRODUCT CATALOGUE —</a>
+</div>
+</main>
+
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById("mainProductImage").querySelector("img").src = t.dataset.img;
+}));
+</script>
+</body>
+</html>

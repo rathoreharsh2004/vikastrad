@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Decorative Glass Tiles | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../catalogue.css">
+</head>
+<body>
+<nav class="site-mini-nav">
+  <a href="../../index.html">VIKAS TRADING CO.</a>
+  <a class="back" href="../glass-mosaic/index.html">← BACK TO GLASS & MOSAIC</a>
+</nav>
+
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/glass-mosaic/decorative-glass-tiles/image-1.jpg"><img src="../../assets/products/glass-mosaic/decorative-glass-tiles/image-1.jpg" alt="Decorative Glass Tiles photo 1"></button><button class="product-thumb" type="button" data-img="../../assets/products/glass-mosaic/decorative-glass-tiles/image-2.jpg"><img src="../../assets/products/glass-mosaic/decorative-glass-tiles/image-2.jpg" alt="Decorative Glass Tiles photo 2"></button>
+    </div>
+    <div id="mainProductImage" class="product-main-image">
+      <img src="../../assets/products/glass-mosaic/decorative-glass-tiles/image-1.jpg" alt="Decorative Glass Tiles">
+    </div>
+  </section>
+
+  <section class="product-page-info">
+    <div class="breadcrumb">GLASS & MOSAIC / DECORATIVE GLASS TILES</div>
+    <h1>Decorative Glass Tiles</h1>
+    <div class="product-page-price">
+      <b>₹ 280 / sq.ft</b>
+      <a href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20Decorative%20Glass%20Tiles%20%28Glass%20%26%20Mosaic%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank">Get Latest Price</a>
+    </div>
+    <p class="product-page-moq">Minimum Order Quantity: <b>30 sq.ft</b></p>
+    <a class="product-brochure" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20Decorative%20Glass%20Tiles%20%28Glass%20%26%20Mosaic%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank" rel="noopener">Request Product Brochure ↗</a>
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Brand</span><span>Vikas Trading Company</span></div>
+      <div class="product-spec-row"><span>Material</span><span>Beveled Mirror Glass & Foil Crystal</span></div><div class="product-spec-row"><span>Design Pattern</span><span>Iridescent Pearl, Diamond Cut & Gold Flake</span></div><div class="product-spec-row"><span>Sheet Size</span><span>300 mm x 300 mm</span></div><div class="product-spec-row"><span>Thickness</span><span>8.0 mm</span></div><div class="product-spec-row"><span>Edge Finish</span><span>Beveled Diamond Polished</span></div><div class="product-spec-row"><span>Usage / Application</span><span>Vanity Backdrops, Dining Feature Walls, Pillars</span></div>
+      <div class="product-spec-row"><span>Shipping</span><span>Pan India & Worldwide Delivery</span></div>
+    </div>
+    <p class="product-desc">Dazzling decorative glass tiles infused with metallic foils and mother-of-pearl accents. Each sheet refracts light in jewel-like facets for ultimate luxury.</p>
+    <div class="product-features">
+      <h3>Features & Highlights:</h3>
+      <ul>
+        <li>Beveled gemstone cuts produce sparkling highlights</li><li>Embedded metallic leaf foils add warm incandescent glow</li><li>Heavy 8mm thickness conveys high architectural caliber</li><li>Stunning feature detail for bathroom vanities and luxury niches</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20Decorative%20Glass%20Tiles%20%28Glass%20%26%20Mosaic%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank">YES, I AM INTERESTED ↗</a>
+      <a class="call" href="tel:+917696292100">CALL 7696292100 ↗</a>
+    </div>
+  </section>
+</div>
+
+<div class="product-page-footer">
+  <a href="../glass-mosaic/index.html">← ALL GLASS & MOSAIC</a>
+  <a href="../../index.html#products">PRODUCT CATALOGUE —</a>
+</div>
+</main>
+
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById("mainProductImage").querySelector("img").src = t.dataset.img;
+}));
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LED Panel Light (4ft x 2ft) | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../catalogue.css">
+</head>
+<body>
+<nav class="site-mini-nav">
+  <a href="../../index.html">VIKAS TRADING CO.</a>
+  <a class="back" href="../lighting/index.html">← BACK TO LIGHTING</a>
+</nav>
+
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/lighting/led-panel-light/image-1.png"><img src="../../assets/products/lighting/led-panel-light/image-1.png" alt="LED Panel Light 4ft x 2ft"></button>
+    </div>
+    <div id="mainProductImage" class="product-main-image">
+      <img src="../../assets/products/lighting/led-panel-light/image-1.png" alt="LED Panel Light (4ft x 2ft)">
+    </div>
+  </section>
+
+  <section class="product-page-info">
+    <div class="breadcrumb">LIGHTING / LED PANEL LIGHT (4FT X 2FT)</div>
+    <h1>LED Panel Light (4ft x 2ft)</h1>
+    <div class="product-page-price">
+      <b>₹ 6,500.00 / Piece</b>
+      <span style="font-size:14px;color:#656b78;margin-left:8px;font-weight:600">(4ft x 2ft)</span>
+      <a href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20LED%20Panel%20Light%20%284ft%20x%202ft%2C%20%E2%82%B96%2C500%29.%20Please%20share%20details." target="_blank">Get Latest Price</a>
+    </div>
+
+    <p class="product-desc" style="margin-top:15px;font-size:15px;color:#333;font-weight:500">
+      4ft x 2ft premium LED panel light with 2-year guarantee. Self-imported directly from the same tier-1 manufacturing company where top international brands import from.
+    </p>
+
+    <div class="product-specs" style="margin-top:20px">
+      <div class="product-spec-row"><span>Product Name</span><span>LED Panel Light</span></div>
+      <div class="product-spec-row"><span>Dimensions / Size</span><span>4 ft x 2 ft (1200 mm x 600 mm)</span></div>
+      <div class="product-spec-row"><span>Price</span><span>₹ 6,500.00 per piece</span></div>
+      <div class="product-spec-row"><span>Guarantee</span><span>2 Years Official Guarantee</span></div>
+      <div class="product-spec-row"><span>Sourcing &amp; Quality</span><span>Direct Self-Import (Tier-1 Global Factory)</span></div>
+      <div class="product-spec-row"><span>Optics</span><span>Anti-Glare PMMA Frosted Optical Diffuser</span></div>
+      <div class="product-spec-row"><span>Frame &amp; Build</span><span>Aerospace-grade Slim Aluminium Frame</span></div>
+      <div class="product-spec-row"><span>Application</span><span>Commercial Offices, Showrooms, Luxury Residences</span></div>
+      <div class="product-spec-row"><span>Brand</span><span>Vikas Trading Company</span></div>
+      <div class="product-spec-row"><span>Shipping</span><span>Pan India &amp; Worldwide Delivery</span></div>
+    </div>
+
+    <div class="product-features" style="margin-top:20px">
+      <h3>Key Highlights:</h3>
+      <ul>
+        <li>Generous 4ft x 2ft large-format architectural lighting surface</li>
+        <li>Backed with a robust 2-Year comprehensive replacement guarantee</li>
+        <li>Self-imported directly from leading global manufacturers for unmatched build quality at competitive prices</li>
+        <li>Soft, edge-to-edge uniform luminescence with zero dark patches or flicker</li>
+        <li>High heat dissipation aluminium frame engineered for ultra-long operational life</li>
+      </ul>
+    </div>
+
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20LED%20Panel%20Light%20%284ft%20x%202ft%2C%20%E2%82%B96%2C500%29.%20Please%20share%20details." target="_blank">ORDER VIA WHATSAPP ↗</a>
+      <a class="call" href="tel:+917696292100">CALL 7696292100 ↗</a>
+    </div>
+  </section>
+</div>
+
+<div class="product-page-footer">
+  <a href="../lighting/index.html">← ALL LIGHTING</a>
+  <a href="../../index.html#products">PRODUCT CATALOGUE —</a>
+</div>
+</main>
+
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById("mainProductImage").querySelector("img").src = t.dataset.img;
+}));
+</script>
+</body>
+</html>

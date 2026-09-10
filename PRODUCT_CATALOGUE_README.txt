@@ -3,8 +3,8 @@ VIKAS TRADING COMPANY — PRODUCT CATALOGUE
 This version adds a complete single-page product catalogue to the reference-design website.
 
 Catalogue:
-42 categories
-315 products
+11 categories
+45 products
 
 Each category has its own folder under:
 assets/products/<category-slug>/

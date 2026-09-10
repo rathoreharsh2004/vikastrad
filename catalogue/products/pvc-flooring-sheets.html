@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PVC Flooring Sheets | Vikas Trading Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../catalogue.css">
+</head>
+<body>
+<nav class="site-mini-nav">
+  <a href="../../index.html">VIKAS TRADING CO.</a>
+  <a class="back" href="../flooring/index.html">← BACK TO FLOORING</a>
+</nav>
+
+<main class="product-page">
+<div class="product-page-shell">
+  <section class="product-gallery">
+    <div class="product-thumbs">
+      <button class="product-thumb active" type="button" data-img="../../assets/products/flooring/pvc-flooring-sheets/image-1.jpg"><img src="../../assets/products/flooring/pvc-flooring-sheets/image-1.jpg" alt="PVC Flooring Sheets photo 1"></button><button class="product-thumb" type="button" data-img="../../assets/products/flooring/pvc-flooring-sheets/image-2.jpg"><img src="../../assets/products/flooring/pvc-flooring-sheets/image-2.jpg" alt="PVC Flooring Sheets photo 2"></button><button class="product-thumb" type="button" data-img="../../assets/products/flooring/pvc-flooring-sheets/image-3.jpg"><img src="../../assets/products/flooring/pvc-flooring-sheets/image-3.jpg" alt="PVC Flooring Sheets photo 3"></button>
+    </div>
+    <div id="mainProductImage" class="product-main-image">
+      <img src="../../assets/products/flooring/pvc-flooring-sheets/image-1.jpg" alt="PVC Flooring Sheets">
+    </div>
+  </section>
+
+  <section class="product-page-info">
+    <div class="breadcrumb">FLOORING / PVC FLOORING SHEETS</div>
+    <h1>PVC Flooring Sheets</h1>
+    <div class="product-page-price">
+      <b>₹ 45 / sq.ft</b>
+      <a href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20PVC%20Flooring%20Sheets%20%28Flooring%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank">Get Latest Price</a>
+    </div>
+    <p class="product-page-moq">Minimum Order Quantity: <b>250 sq.ft</b></p>
+    <a class="product-brochure" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20PVC%20Flooring%20Sheets%20%28Flooring%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank" rel="noopener">Request Product Brochure ↗</a>
+    <div class="product-specs">
+      <div class="product-spec-row"><span>Brand</span><span>Vikas Trading Company</span></div>
+      <div class="product-spec-row"><span>Material</span><span>Heterogeneous Heavy Duty PVC</span></div><div class="product-spec-row"><span>Roll / Tile Dimensions</span><span>2 m Roll or 457 mm x 457 mm Tiles</span></div><div class="product-spec-row"><span>Thickness</span><span>2.0 mm with 0.4 mm Wear Layer</span></div><div class="product-spec-row"><span>Anti-Bacterial</span><span>Sanitized Anti-Microbial Surface</span></div><div class="product-spec-row"><span>Fire Rating</span><span>EN 13501-1 Bfl-s1</span></div><div class="product-spec-row"><span>Usage / Application</span><span>Hospitals, Clinics, Laboratories, Commercial Offices</span></div>
+      <div class="product-spec-row"><span>Shipping</span><span>Pan India & Worldwide Delivery</span></div>
+    </div>
+    <p class="product-desc">High-traffic commercial vinyl sheets engineered for maximum hygiene, continuous seam welding, and supreme wear resistance under heavy pedestrian traffic.</p>
+    <div class="product-features">
+      <h3>Features & Highlights:</h3>
+      <ul>
+        <li>Heavy-duty wear layer withstands continuous foot traffic</li><li>Seam weldable for sterile healthcare-grade floor finishes</li><li>Chemical and stain proof against sanitizers and reagents</li><li>Comfortable slip-resistant texture prevents slips</li>
+      </ul>
+    </div>
+    <div class="product-actions" id="quote">
+      <a class="quote" href="https://wa.me/917696292100?text=Hello%20Vikas%20Trading%20Company%2C%20I%20am%20interested%20in%20PVC%20Flooring%20Sheets%20%28Flooring%29.%20Please%20share%20price%20quote%20and%20catalog%20details." target="_blank">YES, I AM INTERESTED ↗</a>
+      <a class="call" href="tel:+917696292100">CALL 7696292100 ↗</a>
+    </div>
+  </section>
+</div>
+
+<div class="product-page-footer">
+  <a href="../flooring/index.html">← ALL FLOORING</a>
+  <a href="../../index.html#products">PRODUCT CATALOGUE —</a>
+</div>
+</main>
+
+<script>
+document.querySelectorAll('.product-thumb').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.product-thumb').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById("mainProductImage").querySelector("img").src = t.dataset.img;
+}));
+</script>
+</body>
+</html>
