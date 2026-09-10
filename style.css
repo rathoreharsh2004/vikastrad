@@ -285,7 +285,7 @@ font-size:17px;
 font-weight:400
 }
 
-.intro,.manifesto,.creations,.gallery,.reviews,.faq,.location{
+.intro,.manifesto,.creations,.gallery,.reviews,.faq,.location,.trending-collection,.installation{
 padding:120px 0
 }
 
@@ -798,8 +798,8 @@ text-align:center
 }
 
 .contact-bg{
-background:radial-gradient(circle at 50% 35%,#2b2b2b 0%,#111 62%,#080808 100%);
-filter:brightness(.9)
+background:#080808;
+filter:brightness(.18)
 }
 
 .contact-content{
@@ -997,6 +997,70 @@ box-shadow:0 12px 40px #0008,0 0 0 9px #f4d80015
 }
 }
 
+
+
+/* ================= TRENDING COLLECTION ================= */
+.trending-collection{padding:120px 0;overflow:hidden}
+.trending-intro,.installation-intro{max-width:340px;color:#999;font-size:13px;line-height:1.7}
+.trend-category{display:grid;grid-template-columns:.62fr 1.38fr;gap:55px;align-items:center;min-height:700px;padding:55px 0;border-top:1px solid #2b2b2b}
+.trend-category:last-child{border-bottom:1px solid #2b2b2b}
+.trend-copy{max-width:430px}
+.trend-kicker{font-size:9px;letter-spacing:.16em;color:#f4d800;margin-bottom:25px;display:block}
+.trend-copy h3{font-family:Oswald,sans-serif;font-size:clamp(50px,5.5vw,82px);font-weight:500;line-height:.91;letter-spacing:-.025em;margin:0 0 28px}
+.trend-copy h3 span{color:#f4d800}
+.trend-copy p{font-size:14px;line-height:1.8;color:#999;max-width:390px;margin:0}
+.trend-meta{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #303030;margin-top:42px;padding-top:17px;font-size:8px;letter-spacing:.12em;color:#777}
+.trend-meta span:last-child{color:#f4d800;font-family:Oswald;font-size:12px}
+.trend-visual{position:relative;min-width:0}
+.trend-image-wrap{height:min(72vw,680px);aspect-ratio:1 / 1.05;border-radius:16px;overflow:hidden;background:#090909;border:1px solid #2a2a2a;position:relative}
+.trend-image-wrap:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#0009,transparent 50%)}
+.trend-image-wrap img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:opacity .25s,transform .9s}
+.trend-image-wrap:hover img{transform:scale(1.035)}
+.trend-controls{position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:14px;z-index:4}
+.trend-controls .slide-arrow{position:static;transform:none;flex-shrink:0}
+.trend-progress{height:1px;background:#555;flex:1;position:relative;overflow:hidden}
+.trend-progress i{display:block;height:1px;width:7%;background:#f4d800;transition:width .35s}
+.trend-progress span{display:none}
+
+/* ================= AFTER INSTALLATION ================= */
+.installation{padding:120px 0;overflow:hidden}
+.installation-slider{display:grid;grid-template-columns:.62fr 1.38fr;gap:55px;align-items:center;min-height:650px}
+.installation-copy{max-width:430px}
+.installation-kicker{font-size:9px;letter-spacing:.16em;color:#f4d800;margin-bottom:25px;display:block}
+.installation-copy h3{font-family:Oswald,sans-serif;font-size:clamp(45px,5vw,72px);font-weight:500;line-height:.94;letter-spacing:-.025em;margin:0 0 28px}
+.installation-copy p{font-size:14px;line-height:1.8;color:#999;max-width:390px;margin:0}
+.installation-meta{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #303030;margin-top:42px;padding-top:17px;font-size:8px;letter-spacing:.12em;color:#777}
+.installation-meta span:last-child{color:#f4d800;font-family:Oswald;font-size:12px}
+.installation-visual{position:relative;min-width:0}
+.installation-image-wrap{height:520px;border-radius:16px;overflow:hidden;background:#090909;border:1px solid #2a2a2a;position:relative}
+.installation-image-wrap:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#0009,transparent 52%)}
+.installation-image-wrap img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:opacity .25s,transform .9s}
+.installation-image-wrap:hover img{transform:scale(1.035)}
+.installation-label{position:absolute;left:24px;top:22px;z-index:3;font-size:9px;letter-spacing:.16em;color:#fff}
+.installation-controls{position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:14px;z-index:4}
+.installation-controls .slide-arrow{position:static;transform:none;flex-shrink:0}
+.installation-progress{height:1px;background:#555;flex:1;position:relative;overflow:hidden}
+.installation-progress i{display:block;height:1px;width:7%;background:#f4d800;transition:width .35s}
+
+/* ================= FOOTER SOCIAL + ADDRESS ================= */
+.footer-contact{justify-self:end;display:flex;flex-direction:column;gap:22px;min-width:320px}
+.footer-social{display:flex;flex-direction:row;gap:14px;justify-content:flex-end}
+.footer-social a{display:inline-flex;align-items:center;gap:9px;color:#bbb;text-decoration:none;font-size:9px;letter-spacing:.08em;transition:color .25s,transform .25s}
+.footer-social a:hover{color:#f4d800}
+.footer-social svg{width:20px;height:20px;flex:0 0 20px;color:#f4d800;fill:currentColor}
+.footer-social a:nth-child(2) svg{fill:none}
+.footer-address{display:flex;align-items:flex-start;gap:11px;color:#999;font-size:10px;line-height:1.6}
+.footer-address svg{width:19px;height:19px;flex:0 0 19px;color:#f4d800}
+.footer-address span{max-width:300px}
+
+/* ================= FLOATING CALL + WHATSAPP ================= */
+.floating-actions{position:fixed;right:22px;bottom:22px;z-index:80;display:flex;flex-direction:column;gap:12px}
+.float-btn{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 40px #0008;transition:transform .25s,box-shadow .25s}
+.float-btn svg{width:28px;height:28px;display:block}
+.float-call{background:#202020;color:#fff;border:1px solid #555}
+.float-wa{background:#168cff;color:#fff;border:1px solid #5db6ff;animation:pulse-blue 2s infinite}
+.float-btn:hover{box-shadow:0 16px 45px #000b}
+@keyframes pulse-blue{50%{transform:scale(1.06);box-shadow:0 12px 40px #0008,0 0 0 9px #168cff22}}
 
 /* ================= PRODUCT CATALOGUE ================= */
 
@@ -1597,7 +1661,7 @@ flex-direction:column;
 align-items:flex-start
 }
 
-.intro,.manifesto,.creations,.gallery,.reviews,.faq,.location,.recent-collection{
+.intro,.manifesto,.creations,.gallery,.reviews,.faq,.location,.recent-collection,.trending-collection,.installation{
 padding:80px 0
 }
 
@@ -1696,9 +1760,7 @@ grid-template-columns:1fr;
 gap:35px
 }
 
-.footer-social{
-justify-self:start
-}
+.footer-social{justify-self:start;justify-content:flex-start}
 
 .footer-contact{
 justify-self:start;
@@ -1796,6 +1858,14 @@ width:100%
 }
 
 
+
+@media(max-width:1050px){
+  .trend-category,.installation-slider{grid-template-columns:1fr;gap:35px}
+  .trend-copy,.installation-copy{max-width:700px}
+  .trend-image-wrap{height:620px;max-width:720px}
+  .installation-image-wrap{height:500px}
+}
+
 @media(max-width:520px){
 
 .product-grid{
@@ -1853,334 +1923,19 @@ font-size:8px
 
 }
 
-/* ================= TRENDING COLLECTION ================= */
-.trending-collection{
-  padding:120px 0;
-}
-.trending-note{
-  font-size:9px;
-  line-height:1.45;
-  color:#777;
-  letter-spacing:.12em;
-  text-align:right;
-}
-.trending-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-}
-.trend-card{
-  min-width:0;
-  background:#101010;
-  border-radius:14px;
-  overflow:hidden;
-  transition:transform .5s ease,box-shadow .5s ease;
-}
-.trend-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 22px 55px rgba(0,0,0,.35);
-}
-.trend-media{
-  position:relative;
-  aspect-ratio:1 / 1.08;
-  overflow:hidden;
-  background:#090909;
-}
-.trend-image{
-  position:absolute;
-  inset:0;
-  background:center/cover no-repeat;
-  transform:scale(1.01);
-  transition:opacity .25s ease,transform .8s ease;
-}
-.trend-card:hover .trend-image{transform:scale(1.045)}
-.trend-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.62),transparent 55%);
-  pointer-events:none;
-}
-.trend-arrow{
-  position:absolute;
-  z-index:4;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border:1px solid rgba(255,255,255,.55);
-  background:rgba(10,10,10,.55);
-  color:#fff;
-  border-radius:50%;
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  transition:.3s ease;
-}
-.trend-arrow:hover{background:#f4d800;color:#111;border-color:#f4d800}
-.trend-prev{left:12px}
-.trend-next{right:12px}
-.trend-count{
-  position:absolute;
-  z-index:4;
-  right:15px;
-  bottom:14px;
-  color:#fff;
-  font:11px Oswald,sans-serif;
-  letter-spacing:.08em;
-}
-.trend-count .trend-current{color:#f4d800}
-.trend-card-bottom{
-  min-height:104px;
-  padding:18px 18px 17px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  gap:14px;
-}
-.trend-kicker{
-  color:#777;
-  font-size:8px;
-  letter-spacing:.14em;
-}
-.trend-card h3{
-  margin:7px 0 0;
-  font:500 24px/1.02 Oswald,sans-serif;
-  color:#f5f5f2;
-}
-.trend-swipe{
-  color:#666;
-  font-size:7px;
-  letter-spacing:.1em;
-}
-
-/* ================= AFTER INSTALLATION ================= */
-.after-installation{
-  padding:120px 0;
-}
-.after-counter{
-  font:20px Oswald,sans-serif;
-}
-.after-counter span{color:#666}
-.after-slider{
-  display:grid;
-  grid-template-columns:.30fr .70fr;
-  gap:28px;
-  min-height:590px;
-  align-items:stretch;
-}
-.after-copy{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:20px 8px 20px 0;
-}
-.after-kicker{
-  color:#f4d800;
-  font-size:9px;
-  letter-spacing:.16em;
-  margin-bottom:25px;
-}
-.after-copy h3{
-  font:500 clamp(42px,5vw,68px)/.94 Oswald,sans-serif;
-  letter-spacing:-.025em;
-  margin:0 0 25px;
-}
-.after-copy p{
-  max-width:380px;
-  color:#999;
-  font-size:14px;
-  line-height:1.8;
-  margin:0;
-}
-.after-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  margin-top:40px;
-  padding-top:18px;
-  border-top:1px solid #303030;
-  color:#777;
-  font-size:8px;
-  letter-spacing:.12em;
-}
-.after-meta span:last-child{
-  color:#f4d800;
-  font:12px Oswald,sans-serif;
-}
-.after-visual{
-  position:relative;
-  min-width:0;
-  overflow:hidden;
-  border-radius:15px;
-  background:#090909;
-}
-.after-image-wrap{
-  width:100%;
-  height:100%;
-  min-height:590px;
-  overflow:hidden;
-}
-#afterImage{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
-  opacity:1;
-  transition:opacity .35s ease,transform 1s ease;
-}
-.after-visual:hover #afterImage{transform:scale(1.025)}
-.after-controls{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  z-index:5;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.after-controls .slide-arrow{
-  position:static;
-  transform:none;
-  flex-shrink:0;
-}
-.after-progress{
-  height:1px;
-  flex:1;
-  background:#555;
-  overflow:hidden;
-}
-.after-progress i{
-  display:block;
-  height:1px;
-  width:6.66%;
-  background:#f4d800;
-  transition:width .45s ease;
-}
-
-/* ================= FOOTER / ICONS ================= */
-.footer-contact{
-  justify-self:end;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  min-width:300px;
-}
-.footer-contact a,.footer-address{
-  display:flex;
-  align-items:flex-start;
-  gap:11px;
-  color:#bbb;
-  text-decoration:none;
-  font-size:10px;
-  line-height:1.5;
-  transition:color .25s ease;
-}
-.footer-contact a:hover{color:#f4d800}
-.footer-contact svg{
-  width:18px;
-  height:18px;
-  flex:0 0 18px;
-  color:#f4d800;
-}
-.footer-social{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.social-icon{
-  width:42px;
-  height:42px;
-  border:1px solid #444;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#bbb;
-  transition:.3s ease;
-}
-.social-icon svg{
-  width:21px;
-  height:21px;
-  color:currentColor;
-}
-.social-icon:hover{
-  background:#f4d800;
-  color:#111;
-  border-color:#f4d800;
-}
-.whatsapp-social:hover{
-  background:#25d366;
-  border-color:#25d366;
-  color:#fff;
-}
-.footer-address span{max-width:300px}
-
-/* ================= FLOATING ACTIONS ================= */
-.floating-actions{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  z-index:90;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.float-btn{
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  box-shadow:0 12px 40px rgba(0,0,0,.45);
-  transition:transform .3s ease,box-shadow .3s ease;
-}
-.float-btn svg{
-  width:29px;
-  height:29px;
-}
-.float-btn.whatsapp{
-  background:#25d366;
-  color:#fff;
-}
-.float-btn.call{
-  background:#f4d800;
-  color:#111;
-}
-.float-btn:hover{
-  box-shadow:0 16px 45px rgba(0,0,0,.5);
-}
-.float-wa{display:none!important}
-
-/* ================= LOADER SAFETY ================= */
-.loader{
-  pointer-events:auto;
-}
-.loader.hide{
-  pointer-events:none;
-}
-
-/* ================= RESPONSIVE OVERRIDES ================= */
-@media(max-width:1050px){
-  .trending-grid{grid-template-columns:repeat(3,1fr)}
-  .after-slider{grid-template-columns:.38fr .62fr;gap:25px}
-}
 @media(max-width:800px){
-  .trending-collection,.after-installation{padding:80px 0}
-  .trending-grid{grid-template-columns:1fr 1fr}
-  .trend-card-bottom{min-height:96px;padding:15px}
-  .trend-card h3{font-size:21px}
-  .after-slider{grid-template-columns:1fr;gap:30px;min-height:0}
-  .after-copy{order:1;padding:0}
-  .after-visual{order:2}
-  .after-image-wrap{min-height:500px;height:500px}
-  .footer-contact{justify-self:start;min-width:0;width:100%}
+  .trend-category,.installation-slider{min-height:0;padding:45px 0}
+  .trending-intro,.installation-intro{margin-top:25px;max-width:100%}
+  .trend-image-wrap{height:500px;aspect-ratio:auto}
+  .installation-image-wrap{height:430px}
+  .footer-contact{min-width:0;width:100%}
+  .footer-social{justify-content:flex-start;flex-wrap:wrap}
+  .floating-actions{right:15px;bottom:15px}
 }
 @media(max-width:520px){
-  .trending-grid{grid-template-columns:1fr}
-  .trend-media{aspect-ratio:1 / 1.06}
-  .after-image-wrap{height:420px;min-height:420px}
-  .after-copy h3{font-size:43px}
-  .floating-actions{right:16px;bottom:16px}
+  .trend-image-wrap{height:430px}
+  .installation-image-wrap{height:350px}
+  .trend-controls,.installation-controls{left:15px;right:15px;bottom:15px}
   .float-btn{width:54px;height:54px}
+  .float-btn svg{width:26px;height:26px}
 }
