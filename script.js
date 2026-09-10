@@ -1,624 +1,772 @@
-const $ = selector => document.querySelector(selector);
+"use strict";
 
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
-/* ========================================================= */
-/* ================= TRENDING COLLECTION =================== */
-/* ================================================= */
+/* =========================================================
+   CONFIG
+========================================================= */
+const CONFIG = {
+  phone: "+917696292100",
+  whatsapp: "+917696292100",
+  instagram: "https://www.instagram.com/vikastradingcompan/"
+};
 
-const trendingCollections = [
+/* =========================================================
+   HERO
+========================================================= */
+const heroScenes = [
+  {
+    file: "hero-exterior.jpeg",
+    caption: "Exterior / Entrance",
+    tag: "A first impression"
+  },
+  {
+    file: "hero-door.jpeg",
+    caption: "Entrance / Reveal",
+    tag: "Step inside"
+  },
+  {
+    file: "s1.jpeg",
+    caption: "Living Room",
+    tag: "PVC Wallpaper • Marble Sheets • Flooring"
+  },
+  {
+    file: "s2.jpeg",
+    caption: "Bedroom",
+    tag: "Wallpaper • Wall Panels • Flooring"
+  },
+  {
+    file: "s3.jpeg",
+    caption: "Office / Workspace",
+    tag: "Wall Panels • Surface Finishes"
+  },
+  {
+    file: "s4.jpeg",
+    caption: "Surface Detail",
+    tag: "Texture • Detail • Finish"
+  }
+];
 
-    {
-        name: "GI METAL DOORS",
-        images: Array.from(
-            {length:15},
-            (_,i) => `assets/g${i+1}.jpeg`
-        )
-    },
+const heroEls = $$(".hero-scene");
+const heroCaption = $("#heroCaption");
+const heroTag = $("#heroTag");
+const heroNo = $("#heroNo");
 
-    {
-        name: "CHARCOAL LOUVERS",
-        images: Array.from(
-            {length:10},
-            (_,i) => `assets/l${i+1}.jpeg`
-        )
-    },
+let heroIndex = 0;
 
-    {
-        name: "MARBLE SHEETS",
-        images: Array.from(
-            {length:14},
-            (_,i) => `assets/m${i+1}.jpeg`
-        )
-    },
+function setHero(n) {
+  if (!heroEls.length) return;
 
-    {
-        name: "FLOORING",
-        images: Array.from(
-            {length:3},
-            (_,i) => `assets/f${i+1}.jpeg`
-        )
-    },
+  heroIndex = (n + heroEls.length) % heroEls.length;
 
-    {
-        name: "WALLPAPERS",
-        images: Array.from(
-            {length:8},
-            (_,i) => `assets/w${i+1}.jpeg`
-        )
+  heroEls.forEach((el, i) => {
+    el.classList.toggle("active", i === heroIndex);
+
+    const scene = heroScenes[i];
+
+    if (scene && scene.file) {
+      el.style.backgroundImage =
+        `linear-gradient(0deg,rgba(0,0,0,.45),transparent 65%),url("${scene.file}")`;
     }
+  });
 
-];
+  const scene = heroScenes[heroIndex];
 
+  if (heroCaption) {
+    heroCaption.textContent = scene.caption;
+  }
 
-const trendingIndexes = [
-    0,
-    0,
-    0,
-    0,
-    0
-];
+  if (heroTag) {
+    heroTag.textContent = scene.tag;
+  }
 
+  if (heroNo) {
+    heroNo.textContent = String(heroIndex + 1).padStart(2, "0");
+  }
+}
 
-function showTrending(category,index){
+setHero(0);
 
-    const collection = trendingCollections[category];
-
-    if(!collection) return;
-
-    const total = collection.images.length;
-
-    index = (index + total) % total;
-
-    trendingIndexes[category] = index;
+setInterval(() => {
+  setHero(heroIndex + 1);
+}, 9500);
 
 
-    const imageElement =
-        $(`#trendImage${category}`);
+/* =========================================================
+   TRENDING COLLECTION
+   5 CATEGORIES
+   One card per category
+   Manual image navigation
+========================================================= */
 
-    const counterElement =
-        $(`#trendCounter${category}`);
+const trendCards = $$(".trend-card");
 
+function createTrendState(card) {
+  const prefix = card.dataset.prefix;
+  const count = Number(card.dataset.count || 0);
 
-    imageElement.style.opacity = "0";
+  return {
+    card,
+    prefix,
+    count,
+    index: 0,
+    image: card.querySelector(".trend-image"),
+    current: card.querySelector(".trend-current")
+  };
+}
 
+const trendStates = trendCards.map(createTrendState);
 
-    setTimeout(() => {
+function trendSrc(state, index) {
+  return `assets/${state.prefix}${index + 1}.jpeg`;
+}
 
-        imageElement.style.backgroundImage =
-            `url("${collection.images[index]}")`;
+function showTrend(state, nextIndex) {
+  if (!state || !state.count || !state.image) {
+    return;
+  }
 
-        imageElement.style.opacity = "1";
+  state.index =
+    (nextIndex + state.count) % state.count;
 
-    },120);
+  const src = trendSrc(state, state.index);
 
+  state.image.style.opacity = "0";
 
-    counterElement.textContent =
-        String(index + 1).padStart(2,"0");
+  const preloaded = new Image();
 
+  preloaded.onload = () => {
+    state.image.style.backgroundImage =
+      `url("${src}")`;
+
+    requestAnimationFrame(() => {
+      state.image.style.opacity = "1";
+    });
+  };
+
+  preloaded.onerror = () => {
+    state.image.style.opacity = "1";
+    console.warn(`Image not found: ${src}`);
+  };
+
+  preloaded.src = src;
+
+  if (state.current) {
+    state.current.textContent =
+      String(state.index + 1).padStart(2, "0");
+  }
 }
 
 
-/* Initial trending images */
+/* Initialize Trending Cards */
+trendStates.forEach((state) => {
+  showTrend(state, 0);
 
-trendingCollections.forEach((collection,index) => {
+  const prev =
+    state.card.querySelector(".trend-prev");
 
-    showTrending(index,0);
+  const next =
+    state.card.querySelector(".trend-next");
 
+  if (prev) {
+    prev.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      showTrend(
+        state,
+        state.index - 1
+      );
+    });
+  }
+
+  if (next) {
+    next.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      showTrend(
+        state,
+        state.index + 1
+      );
+    });
+  }
 });
 
 
-/* Trending manual controls */
+/* =========================================================
+   TRENDING COLLECTION TOUCH SWIPE
+========================================================= */
 
-document
-    .querySelectorAll(".trend-prev")
-    .forEach(button => {
+trendStates.forEach((state) => {
+  let startX = 0;
+  let startY = 0;
 
-        button.addEventListener("click",() => {
+  state.card.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch =
+        event.changedTouches[0];
 
-            const category =
-                Number(button.dataset.category);
+      startX = touch.clientX;
+      startY = touch.clientY;
+    },
+    { passive: true }
+  );
 
-            showTrending(
-                category,
-                trendingIndexes[category] - 1
-            );
+  state.card.addEventListener(
+    "touchend",
+    (event) => {
+      const touch =
+        event.changedTouches[0];
 
-        });
+      const dx =
+        touch.clientX - startX;
 
-    });
+      const dy =
+        touch.clientY - startY;
 
-
-document
-    .querySelectorAll(".trend-next")
-    .forEach(button => {
-
-        button.addEventListener("click",() => {
-
-            const category =
-                Number(button.dataset.category);
-
-            showTrending(
-                category,
-                trendingIndexes[category] + 1
-            );
-
-        });
-
-    });
-
-
-/* ========================================================= */
-/* ================= TRENDING TOUCH SWIPE ================== */
-/* ========================================================= */
-
-document
-    .querySelectorAll(".trend-image-wrap")
-    .forEach((area,index) => {
-
-        let startX = 0;
-        let endX = 0;
-
-
-        area.addEventListener(
-            "touchstart",
-            event => {
-
-                startX =
-                    event.touches[0].clientX;
-
-            },
-            {passive:true}
+      if (
+        Math.abs(dx) > 45 &&
+        Math.abs(dx) > Math.abs(dy)
+      ) {
+        showTrend(
+          state,
+          state.index +
+            (dx < 0 ? 1 : -1)
         );
-
-
-        area.addEventListener(
-            "touchend",
-            event => {
-
-                endX =
-                    event.changedTouches[0].clientX;
-
-                const difference =
-                    startX - endX;
-
-
-                if(Math.abs(difference) < 45){
-                    return;
-                }
-
-
-                if(difference > 0){
-
-                    showTrending(
-                        index,
-                        trendingIndexes[index] + 1
-                    );
-
-                }else{
-
-                    showTrending(
-                        index,
-                        trendingIndexes[index] - 1
-                    );
-
-                }
-
-            },
-            {passive:true}
-        );
-
-    });
-
-
-/* ========================================================= */
-/* ================= AFTER INSTALLATION ==================== */
-/* ========================================================= */
-
-const installationImages =
-    Array.from(
-        {length:15},
-        (_,i) => `assets/af${i+1}.jpeg`
-    );
-
-
-const installationContent = [
-
-    {
-        title:"DETAILS THAT COMPLETE THE SPACE.",
-        text:"The right finish brings the entire design together. Explore completed spaces where material, texture and installation work as one."
+      }
     },
+    { passive: true }
+  );
+});
 
-    {
-        title:"FROM MATERIAL TO EXPERIENCE.",
-        text:"A carefully selected surface can completely change the atmosphere of a room and create a more refined visual experience."
-    },
 
-    {
-        title:"DESIGNED TO MAKE AN IMPRESSION.",
-        text:"Every installation is an opportunity to add character, depth and a distinctive visual identity to the space."
-    },
+/* =========================================================
+   AFTER INSTALLATION
+   15 IMAGES
+   Manual slider
+   Changing text
+========================================================= */
 
-    {
-        title:"SURFACES WITH PURPOSE.",
-        text:"Texture and finish are not just decorative choices. They help define how a space feels, functions and is remembered."
-    },
+const afterImages = Array.from(
+  { length: 15 },
+  (_, i) =>
+    `assets/af${i + 1}.jpeg`
+);
 
-    {
-        title:"A FINISH WORTH NOTICING.",
-        text:"Premium materials become truly meaningful when they are installed with precision and complement the architecture around them."
-    },
-
-    {
-        title:"THE RIGHT DETAIL CHANGES EVERYTHING.",
-        text:"From walls to doors and decorative surfaces, the right product can become the defining detail of an entire interior."
-    },
-
-    {
-        title:"BUILT AROUND YOUR VISION.",
-        text:"Our collection gives designers, architects and homeowners the freedom to create spaces that feel individual and considered."
-    },
-
-    {
-        title:"TEXTURE. DEPTH. CHARACTER.",
-        text:"Layered materials and carefully selected finishes create visual depth while keeping the overall design sophisticated."
-    },
-
-    {
-        title:"A SPACE COMES ALIVE.",
-        text:"Once installation is complete, the relationship between material, lighting and architecture becomes part of the final story."
-    },
-
-    {
-        title:"CRAFTED FOR MODERN SPACES.",
-        text:"Contemporary interiors demand materials that feel current while remaining visually strong for years to come."
-    },
-
-    {
-        title:"MATERIAL MEETS ARCHITECTURE.",
-        text:"The best installations work with the architecture rather than against it, creating a seamless relationship between product and space."
-    },
-
-    {
-        title:"DESIGN IN EVERY SURFACE.",
-        text:"Walls, floors, doors and decorative elements can all become part of a cohesive design language when chosen thoughtfully."
-    },
-
-    {
-        title:"BEYOND THE ORDINARY.",
-        text:"Distinctive materials help create spaces that feel different from standard interiors and leave a stronger visual impression."
-    },
-
-    {
-        title:"THE FINAL LOOK MATTERS.",
-        text:"A successful installation is where product selection, proportion, texture and craftsmanship come together."
-    },
-
-    {
-        title:"MAKING SPACES MEMORABLE.",
-        text:"Our goal is simple — bring distinctive products into spaces where they can create a lasting impression."
-    }
-
+const afterContent = [
+  {
+    title: "THE FINISHED DIFFERENCE",
+    text: "A surface becomes truly convincing when it settles into the finished space. See how the final installation brings depth, texture and character together."
+  },
+  {
+    title: "DETAIL IN PLACE",
+    text: "Once installed, the material begins working with the architecture around it — creating a finish that feels intentional rather than added on."
+  },
+  {
+    title: "TEXTURE COMES ALIVE",
+    text: "Light, shadow and texture interact differently after installation, giving the surface a richer visual presence throughout the day."
+  },
+  {
+    title: "A STRONGER WALL",
+    text: "The right wall finish can change the mood of an entire room, turning an ordinary surface into a clear design feature."
+  },
+  {
+    title: "WARMTH UNDERFOOT",
+    text: "Flooring completes the visual foundation of a space, adding warmth, rhythm and a more finished sense of proportion."
+  },
+  {
+    title: "THE STATEMENT SURFACE",
+    text: "Installed as a feature, the right surface becomes the detail people notice first — bold, refined and full of character."
+  },
+  {
+    title: "CLEAN ARCHITECTURAL LINES",
+    text: "Panels and louvers create rhythm and structure, helping the finished interior feel more composed and contemporary."
+  },
+  {
+    title: "MATERIAL & LIGHT",
+    text: "A finished surface changes with natural and artificial light, revealing tones and textures that are easy to miss in a sample."
+  },
+  {
+    title: "THE ROOM FEELS COMPLETE",
+    text: "Installation is where individual products become one visual language — walls, floors and details working together."
+  },
+  {
+    title: "DESIGNED TO BELONG",
+    text: "Good finishes should feel connected to the room, complementing furniture, lighting and architecture instead of competing with them."
+  },
+  {
+    title: "FROM SAMPLE TO SPACE",
+    text: "The finished result shows what a material can really do when scale, placement and surrounding elements are considered together."
+  },
+  {
+    title: "A MORE DISTINCTIVE MOOD",
+    text: "Pattern, colour and texture can shift the personality of a space instantly once the final installation is in place."
+  },
+  {
+    title: "THE DETAIL LAYER",
+    text: "Small material decisions become visible at full scale, adding the final layer of character to a carefully considered interior."
+  },
+  {
+    title: "BUILT FOR THE VISUAL",
+    text: "A premium finish earns its place by improving the whole composition — making the space feel sharper, richer and more resolved."
+  },
+  {
+    title: "THE FINAL REVEAL",
+    text: "The last step is seeing everything together: material, light, architecture and detail forming one finished visual statement."
+  }
 ];
 
+const afterImage = $("#afterImage");
+const afterTitle = $("#afterTitle");
+const afterText = $("#afterText");
+const afterCounter = $("#afterCounter");
+const afterNumber = $("#afterNumber");
+const afterKicker = $("#afterKicker");
+const afterProgress = $("#afterProgress");
 
-let installationIndex = 0;
+const afterPrev = $("#afterPrev");
+const afterNext = $("#afterNext");
 
+let afterIndex = 0;
 
-const installationImage =
-    $("#installationImage");
+function showAfter(n) {
+  afterIndex =
+    (n + afterImages.length) %
+    afterImages.length;
 
-const installationNumber =
-    $("#installationNumber");
+  const data =
+    afterContent[afterIndex] ||
+    afterContent[0];
 
-const installationTitle =
-    $("#installationTitle");
+  const src =
+    afterImages[afterIndex];
 
-const installationText =
-    $("#installationText");
+  if (afterImage) {
+    afterImage.style.opacity = "0";
 
-const installationProgress =
-    $("#installationProgress");
+    const img = new Image();
 
+    img.onload = () => {
+      afterImage.src = src;
 
-function showInstallation(index){
+      afterImage.alt =
+        `Vikas Trading Company - ${data.title}`;
 
-    installationIndex =
-        (index + installationImages.length)
-        % installationImages.length;
+      requestAnimationFrame(() => {
+        afterImage.style.opacity = "1";
+      });
+    };
 
+    img.onerror = () => {
+      afterImage.style.opacity = "1";
 
-    installationImage.style.opacity = "0";
+      console.warn(
+        `Image not found: ${src}`
+      );
+    };
 
+    img.src = src;
+  }
 
-    setTimeout(() => {
+  if (afterTitle) {
+    afterTitle.textContent =
+      data.title;
+  }
 
-        installationImage.style.backgroundImage =
-            `url("${installationImages[installationIndex]}")`;
+  if (afterText) {
+    afterText.textContent =
+      data.text;
+  }
 
-        installationImage.style.opacity = "1";
+  const number =
+    String(afterIndex + 1)
+      .padStart(2, "0");
 
-    },150);
+  if (afterCounter) {
+    afterCounter.textContent =
+      number;
+  }
 
+  if (afterNumber) {
+    afterNumber.textContent =
+      `${number} / ${afterImages.length}`;
+  }
 
-    installationNumber.textContent =
-        `${String(installationIndex + 1).padStart(2,"0")} / 15`;
+  if (afterKicker) {
+    afterKicker.textContent =
+      `AFTER INSTALLATION / ${number}`;
+  }
 
-
-    const content =
-        installationContent[installationIndex];
-
-
-    installationTitle.textContent =
-        content.title;
-
-    installationText.textContent =
-        content.text;
-
-
-    installationProgress.style.width =
-        `${((installationIndex + 1) / installationImages.length) * 100}%`;
-
+  if (afterProgress) {
+    afterProgress.style.width =
+      `${((afterIndex + 1) /
+        afterImages.length) * 100}%`;
+  }
 }
 
 
-showInstallation(0);
-
-
-/* Installation buttons */
-
-$("#installationPrev").onclick = () => {
-
-    showInstallation(
-        installationIndex - 1
-    );
-
-};
-
-
-$("#installationNext").onclick = () => {
-
-    showInstallation(
-        installationIndex + 1
-    );
-
-};
-
-
-/* Installation swipe */
-
-const installationArea =
-    document.querySelector(".installation-image-area");
-
-
-let installationStartX = 0;
-
-
-installationArea.addEventListener(
-    "touchstart",
-    event => {
-
-        installationStartX =
-            event.touches[0].clientX;
-
-    },
-    {passive:true}
-);
-
-
-installationArea.addEventListener(
-    "touchend",
-    event => {
-
-        const endX =
-            event.changedTouches[0].clientX;
-
-        const difference =
-            installationStartX - endX;
-
-
-        if(Math.abs(difference) < 45){
-            return;
-        }
-
-
-        if(difference > 0){
-
-            showInstallation(
-                installationIndex + 1
-            );
-
-        }else{
-
-            showInstallation(
-                installationIndex - 1
-            );
-
-        }
-
-    },
-    {passive:true}
-);
-
-
-/* ========================================================= */
-/* ================= FAQ ACCORDION ========================= */
-/* ========================================================= */
-
-document
-    .querySelectorAll(".faq")
-    .forEach(item => {
-
-        const button =
-            item.querySelector("button");
-
-
-        button.onclick = () => {
-
-            document
-                .querySelectorAll(".faq.open")
-                .forEach(openItem => {
-
-                    if(openItem !== item){
-
-                        openItem.classList.remove("open");
-
-                    }
-
-                });
-
-
-            item.classList.toggle("open");
-
-        };
-
-    });
-
-
-/* ========================================================= */
-/* ================= SCROLL REVEAL ========================== */
-/* ========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add("visible");
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold:.1
-        }
-
-    );
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(element => {
-
-        revealObserver.observe(element);
-
-    });
-
-
-/* ========================================================= */
-/* ================= MAGNETIC BUTTONS ======================= */
-/* ========================================================= */
-
-document
-    .querySelectorAll(".magnetic")
-    .forEach(element => {
-
-
-        element.addEventListener(
-            "mousemove",
-            event => {
-
-                if(
-                    !matchMedia(
-                        "(hover:hover)"
-                    ).matches
-                ){
-                    return;
-                }
-
-
-                const rect =
-                    element.getBoundingClientRect();
-
-
-                const x =
-                    (event.clientX -
-                    rect.left -
-                    rect.width / 2) * .08;
-
-
-                const y =
-                    (event.clientY -
-                    rect.top -
-                    rect.height / 2) * .08;
-
-
-                element.style.transform =
-                    `translate(${x}px,${y}px)`;
-
-            }
-        );
-
-
-        element.addEventListener(
-            "mouseleave",
-            () => {
-
-                element.style.transform = "";
-
-            }
-        );
-
-    });
-
-
-/* ========================================================= */
-/* ================= MENU ================================== */
-/* ========================================================= */
-
-$("#menu").onclick = () => {
-
-    const firstLink =
-        document.querySelector(".header nav a");
-
-    if(firstLink){
-
-        firstLink.click();
-
+/* After Installation Buttons */
+
+if (afterPrev) {
+  afterPrev.addEventListener(
+    "click",
+    () => {
+      showAfter(afterIndex - 1);
     }
+  );
+}
 
-};
+if (afterNext) {
+  afterNext.addEventListener(
+    "click",
+    () => {
+      showAfter(afterIndex + 1);
+    }
+  );
+}
 
-
-/* ========================================================= */
-/* ================= LOADER ================================ */
-/* ========================================================= */
-
-let pct = 0;
-
-
-const load =
-    setInterval(() => {
-
-        pct += 4;
-
-        $("#loadNum").textContent =
-            pct + "%";
+showAfter(0);
 
 
-        if(pct >= 100){
+/* =========================================================
+   AFTER INSTALLATION TOUCH SWIPE
+========================================================= */
 
-            clearInterval(load);
+const afterVisual =
+  document.querySelector(
+    ".after-visual"
+  );
+
+if (afterVisual) {
+  let startX = 0;
+  let startY = 0;
+
+  afterVisual.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch =
+        event.changedTouches[0];
+
+      startX = touch.clientX;
+      startY = touch.clientY;
+    },
+    { passive: true }
+  );
+
+  afterVisual.addEventListener(
+    "touchend",
+    (event) => {
+      const touch =
+        event.changedTouches[0];
+
+      const dx =
+        touch.clientX - startX;
+
+      const dy =
+        touch.clientY - startY;
+
+      if (
+        Math.abs(dx) > 45 &&
+        Math.abs(dx) > Math.abs(dy)
+      ) {
+        showAfter(
+          afterIndex +
+            (dx < 0 ? 1 : -1)
+        );
+      }
+    },
+    { passive: true }
+  );
+}
 
 
-            setTimeout(() => {
+/* =========================================================
+   HEADER / MOBILE MENU
+========================================================= */
 
-                $("#loader")
-                    .classList
-                    .add("hide");
+const header = $("#header");
+const menuButton = $("#menu");
+const menuPanel = $("#menuPanel");
+const menuClose = $("#menuClose");
 
-            },300);
+if (header) {
+  window.addEventListener(
+    "scroll",
+    () => {
+      header.classList.toggle(
+        "scrolled",
+        window.scrollY > 50
+      );
+    },
+    { passive: true }
+  );
+}
 
+function setMenu(open) {
+  if (!menuButton || !menuPanel) {
+    return;
+  }
+
+  menuPanel.classList.toggle(
+    "open",
+    open
+  );
+
+  menuButton.classList.toggle(
+    "open",
+    open
+  );
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    String(open)
+  );
+
+  menuPanel.setAttribute(
+    "aria-hidden",
+    String(!open)
+  );
+
+  document.body.classList.toggle(
+    "menu-open",
+    open
+  );
+}
+
+if (menuButton) {
+  menuButton.addEventListener(
+    "click",
+    () => {
+      const isOpen =
+        menuPanel &&
+        menuPanel.classList.contains(
+          "open"
+        );
+
+      setMenu(!isOpen);
+    }
+  );
+}
+
+if (menuClose) {
+  menuClose.addEventListener(
+    "click",
+    () => setMenu(false)
+  );
+}
+
+$$(".menu-links a").forEach(
+  (link) => {
+    link.addEventListener(
+      "click",
+      () => setMenu(false)
+    );
+  }
+);
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+    if (event.key === "Escape") {
+      setMenu(false);
+    }
+  }
+);
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+$$(".faq").forEach((item) => {
+  const button =
+    item.querySelector("button");
+
+  if (!button) {
+    return;
+  }
+
+  button.addEventListener(
+    "click",
+    () => {
+      $$(".faq.open").forEach(
+        (openItem) => {
+          if (openItem !== item) {
+            openItem.classList.remove(
+              "open"
+            );
+          }
         }
+      );
 
-    },35);
+      item.classList.toggle(
+        "open"
+      );
+    }
+  );
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+if (
+  "IntersectionObserver" in window
+) {
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach(
+          (entry) => {
+            if (
+              entry.isIntersecting
+            ) {
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+            }
+          }
+        );
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+  $$(".reveal").forEach(
+    (element) => {
+      observer.observe(element);
+    }
+  );
+} else {
+  $$(".reveal").forEach(
+    (element) => {
+      element.classList.add(
+        "visible"
+      );
+    }
+  );
+}
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+========================================================= */
+
+if (
+  window.matchMedia(
+    "(hover:hover)"
+  ).matches
+) {
+  $$(".magnetic").forEach(
+    (element) => {
+      element.addEventListener(
+        "mousemove",
+        (event) => {
+          const rect =
+            element.getBoundingClientRect();
+
+          const x =
+            (event.clientX -
+              rect.left -
+              rect.width / 2) *
+            0.08;
+
+          const y =
+            (event.clientY -
+              rect.top -
+              rect.height / 2) *
+            0.08;
+
+          element.style.transform =
+            `translate(${x}px,${y}px)`;
+        }
+      );
+
+      element.addEventListener(
+        "mouseleave",
+        () => {
+          element.style.transform = "";
+        }
+      );
+    }
+  );
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const glow = $("#glow");
+
+if (
+  glow &&
+  window.matchMedia(
+    "(hover:hover)"
+  ).matches
+) {
+  window.addEventListener(
+    "mousemove",
+    (event) => {
+      glow.style.opacity = "1";
+      glow.style.left =
+        `${event.clientX}px`;
+      glow.style.top =
+        `${event.clientY}px`;
+    }
+  );
+}
+
+
+/* =========================================================
+   LOADER
+   0% → 100%
+   Then website appears
+========================================================= */
+
+(function startLoader() {
+  const loader = $("#loader");
+  const loadNum = $("#loadNum");
+
+  if (!loader || !loadNum) {
+    return;
+  }
+
+  let pct = 0;
+
+  loadNum.textContent = "0%";
+
+  const interval =
+    setInterval(() => {
+      pct = Math.min(
+        100,
+        pct + 4
+      );
+
+      loadNum.textContent =
+        `${pct}%`;
+
+      if (pct >= 100) {
+        clearInterval(interval);
+
+        setTimeout(() => {
+          loader.classList.add(
+            "hide"
+          );
+
+          document.body.classList.remove(
+            "menu-open"
+          );
+        }, 300);
+      }
+    }, 45);
+})();
