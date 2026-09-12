@@ -222,8 +222,23 @@ function renderProject(){
     projectCounter.textContent =
       String(projectIndex + 1).padStart(2,"0");
 
-    projectTitle.textContent =
-      `PROJECT ${String(projectIndex + 1).padStart(2,"0")}`;
+    const projectTaglines = [
+  "Luxury Marble Installation",
+  "Premium Italian Marble",
+  "Elegant Living Space",
+  "Modern Stone Flooring",
+  "Timeless Natural Stone",
+  "Premium Wall Cladding",
+  "Luxury Interior Finish",
+  "Statement Marble Design",
+  "Elegant Residential Project",
+  "Premium Commercial Finish",
+  "Contemporary Stone Installation",
+  "Classic Marble Elegance",
+  "Refined Interior Detailing",
+  "Signature Stone Project",
+  "Luxury Surface Design"
+];
 
     projectProgress.style.width =
       `${((projectIndex + 1) / completedProjects.length) * 100}%`;
