@@ -215,21 +215,21 @@ const completedProjects = Array.from(
 );
 
 const projectTaglines = [
-  "Luxury Marble Installation",
-  "Premium Italian Marble",
-  "Elegant Living Space",
-  "Modern Stone Flooring",
-  "Timeless Natural Stone",
+  " GI Metal Door Installation",
+  " Marble Sheet ",
+  " Wallpaper for Interior ",
+  "Modern Flooring",
+  " Front GI Metal Door ",
   "Premium Wall Cladding",
   "Luxury Interior Finish",
+  "  Elegant Residential Project",
   "Statement Marble Design",
-  "Elegant Residential Project",
-  "Premium Commercial Finish",
-  "Contemporary Stone Installation",
-  "Classic Marble Elegance",
-  "Refined Interior Detailing",
-  "Signature Stone Project",
-  "Luxury Surface Design"
+  "Premium Finish",
+  "Contemporary Installation",
+  "Classic Elegance",
+  " Classic Surface Design",
+  "Signature Metal Door",
+  "Luxury Louvers"
 ];
 
 
