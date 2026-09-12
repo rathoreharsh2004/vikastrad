@@ -19,20 +19,38 @@ const trendingCollections = {
     (_,i) => `assets/l${i+1}.jpeg`
   ),
 
-  marble: Array.from(
-    {length:14},
-    (_,i) => `assets/m${i+1}.jpeg`
-  ),
+  marble: [
+    "assets/m1.jpeg",
+    "assets/w2.jpeg",
+    "assets/w3.jpeg",
+    "assets/w4.jpeg",
+    "assets/w5.jpeg",
+    "assets/w6.jpeg",
+    "assets/m6.jpeg",
+    "assets/m7.jpeg",
+    "assets/m8.jpeg",
+    "assets/m9.jpeg",
+    "assets/m10.jpeg",
+    "assets/m12.jpeg",
+    "assets/m13.jpeg"
+  ],
 
   flooring: Array.from(
     {length:3},
     (_,i) => `assets/f${i+1}.jpeg`
   ),
 
-  wallpapers: Array.from(
-    {length:8},
-    (_,i) => `assets/w${i+1}.jpeg`
-  )
+  wallpapers: [
+    "assets/w1.jpeg",
+    "assets/m11.jpeg",
+    "assets/m2.jpeg",
+    "assets/m3.jpeg",
+    "assets/m4.jpeg",
+    "assets/m5.jpeg",
+    "assets/m14.jpeg",
+    "assets/w7.jpeg",
+    "assets/w8.jpeg"
+  ]
 
 };
 
@@ -46,6 +64,7 @@ $$(".trend-card").forEach(card => {
 
   const image = card.querySelector(".trend-image");
   const current = card.querySelector(".trend-current");
+  const total = card.querySelector(".trend-counter span:last-child");
 
   const prev = card.querySelector(".trend-prev");
   const next = card.querySelector(".trend-next");
@@ -64,6 +83,9 @@ $$(".trend-card").forEach(card => {
 
       image.style.backgroundImage = `url("${images[index]}")`;
       current.textContent = String(index + 1).padStart(2,"0");
+      if(total) {
+        total.textContent = `/ ${images.length}`;
+      }
 
       image.style.opacity = "1";
 
@@ -192,6 +214,24 @@ const completedProjects = Array.from(
   (_,i) => `assets/af${i+1}.jpeg`
 );
 
+const projectTaglines = [
+  " GI Metal Door Installation",
+  " Marble Sheet ",
+  " Wallpaper for Interior ",
+  "Modern Flooring",
+  " Front GI Metal Door ",
+  "Premium Wall Cladding",
+  "Luxury Interior Finish",
+  "  Elegant Residential Project",
+  "Statement Marble Design",
+  "Premium Finish",
+  "Contemporary Installation",
+  "Classic Elegance",
+  " Classic Surface Design",
+  "Signature Metal Door",
+  "Luxury Louvers"
+];
+
 
 const projectImage = $("#projectMainImage");
 const projectCounter = $("#projectCounter");
@@ -222,23 +262,9 @@ function renderProject(){
     projectCounter.textContent =
       String(projectIndex + 1).padStart(2,"0");
 
-    const projectTaglines = [
-  "Luxury Marble Installation",
-  "Premium Italian Marble",
-  "Elegant Living Space",
-  "Modern Stone Flooring",
-  "Timeless Natural Stone",
-  "Premium Wall Cladding",
-  "Luxury Interior Finish",
-  "Statement Marble Design",
-  "Elegant Residential Project",
-  "Premium Commercial Finish",
-  "Contemporary Stone Installation",
-  "Classic Marble Elegance",
-  "Refined Interior Detailing",
-  "Signature Stone Project",
-  "Luxury Surface Design"
-];
+    // Safe fallback check if array index is within bounds
+    projectTitle.textContent =
+      projectTaglines[projectIndex] || `PROJECT ${String(projectIndex + 1).padStart(2,"0")}`;
 
     projectProgress.style.width =
       `${((projectIndex + 1) / completedProjects.length) * 100}%`;
@@ -462,22 +488,89 @@ $$(".magnetic").forEach(el => {
 
 
 /* =========================================================
-   MENU
+   MOBILE MENU DROPDOWN
 ========================================================= */
 
-const menu = $("#menu");
+const menuBtn = $("#menu");
 
-if(menu){
+if(menuBtn){
+  // Create dropdown popup element dynamically
+  const dropdown = document.createElement("div");
+  dropdown.className = "mobile-menu-dropdown";
+  dropdown.innerHTML = `
+    <div class="menu-dropdown-content">
+      <a href="#about">ABOUT</a>
+      <a href="#trending">COLLECTION</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#reviews">REVIEWS</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  `;
+  document.body.appendChild(dropdown);
 
-  menu.onclick = () => {
+  // Add CSS styles dynamically for the dropdown overlay menu
+  const styleTag = document.createElement("style");
+  styleTag.textContent = `
+    .mobile-menu-dropdown {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(8, 8, 8, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-menu-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .menu-dropdown-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    .menu-dropdown-content a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+    .menu-dropdown-content a:hover {
+      color: #f4d800;
+    }
+  `;
+  document.head.appendChild(styleTag);
 
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
+  menuBtn.onclick = (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("active");
   };
 
+  // Close dropdown when a section link inside is clicked
+  dropdown.querySelectorAll("a").forEach(link => {
+    link.onclick = () => {
+      dropdown.classList.remove("active");
+    };
+  });
+
+  // Close when clicking outside content
+  dropdown.onclick = (e) => {
+    if(e.target === dropdown) {
+      dropdown.classList.remove("active");
+    }
+  };
 }
 
 
